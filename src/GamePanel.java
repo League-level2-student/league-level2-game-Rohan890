@@ -12,10 +12,12 @@ import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	Timer frameDraw;
-	Player pl = new Player(250,700,50,50);
+	Player pl = new Player(200,100,50,50);
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
+	ObjectManager o = new ObjectManager(pl);
+	
 	public void paintComponent(Graphics g){
 		 drawGameState(g);
 	}
@@ -29,7 +31,38 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+			
+		    pl.up = true;
+		    pl.down = false;
+		    pl.right = false;
+		    pl.left = false;
+			
+		}
+		if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+
+		    pl.down = true;
+		    pl.up = false;
+		    pl.right = false;
+		    pl.left = false;
+			
+		}
+		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+
+		    pl.right = true;
+		    pl.down = false;
+		    pl.up = false;
+		    pl.left = false;
+			
+		}
+		if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+
+		    pl.left = true;
+		    pl.down = false;
+		    pl.right = false;
+		    pl.up = false;
+			
+		}
 	}
 
 	@Override
@@ -41,12 +74,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		repaint();
+		o.update();
 	}
 	void drawGameState(Graphics g) { 
-    	g.setColor(Color.BLACK);
-    	g.drawImage(image, 0,0,500,800,null);
-
+    	
+		g.setColor(Color.BLACK);
+    	o.draw(g);
 	}
 	GamePanel(){
 		frameDraw = new Timer(1000/60,this);
@@ -64,4 +98,4 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	    }
 	}
 }
-}
+

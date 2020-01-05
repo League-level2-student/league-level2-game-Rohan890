@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getKeyCode()==KeyEvent.VK_UP) {
+		if (e.getKeyCode()==KeyEvent.VK_UP ) {
 			
 		    pl.up = true;
 		    pl.down = false;
@@ -81,6 +81,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	
 		g.setColor(Color.BLACK);
     	o.draw(g);
+
+    	
 	}
 	GamePanel(){
 		frameDraw = new Timer(1000/60,this);

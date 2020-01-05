@@ -30,6 +30,8 @@ public class Player extends GameObject{
 	 }
 
 	 void update() {
+		 int xx = this.x;
+		 int yy = this.y;
 		 if(up == true) {
 			 y-= speed;
 		 }
@@ -41,6 +43,10 @@ public class Player extends GameObject{
 		 }
 		 if(left == true) {
 			 x-= speed;
+		 }
+		 if(ObjectManager.checkCollision() == true) {
+			 x = xx;
+			 y = yy;
 		 }
 	 }
 	 void loadImage(String imageFile) {

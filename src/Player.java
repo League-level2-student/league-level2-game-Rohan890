@@ -33,18 +33,18 @@ public class Player extends GameObject{
 		 int xx = this.x;
 		 int yy = this.y;
 		 if(up == true) {
-			 y-= speed;
+			 yy-= speed;
 		 }
 		 if(down == true) {
-			 y+= speed;
+			 yy+= speed;
 		 }
 		 if(right == true) {
-			 x+= speed;
+			 xx+= speed;
 		 }
 		 if(left == true) {
-			 x-= speed;
+			 xx-= speed;
 		 }
-		 if(ObjectManager.checkCollision() == true) {
+		 if(ObjectManager.checkCollision(xx,yy,width,height) == false) {
 			 x = xx;
 			 y = yy;
 		 }

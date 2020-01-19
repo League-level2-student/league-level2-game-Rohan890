@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class ObjectManager {
@@ -28,9 +29,10 @@ void update() {
 		walls.get(i).update();
 	}
 }
-public static boolean checkCollision(){
+public static boolean checkCollision(int x,int y,int width,int height){
+	Rectangle r = new Rectangle(x,y,width,height);
 	for (int i = 0; i < walls.size(); i++) {
-		if (pl.collisionBox.intersects(walls.get(i).collisionBox)) {
+		if (r.intersects(walls.get(i).collisionBox)) {
 			return true;
 		}
 	

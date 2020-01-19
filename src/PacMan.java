@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import javax.swing.JFrame;
 
 public class PacMan {
@@ -20,6 +22,7 @@ public class PacMan {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.addKeyListener(g);
+		g.setBackground(Color.black);
 
 	}
 	void setup() {

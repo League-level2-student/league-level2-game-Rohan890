@@ -1,18 +1,26 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.Timer;
 
-public class Player extends GameObject{
+public class Player extends GameObject implements ActionListener{
+	Timer t = new Timer(100, this);
 	boolean up = false;
 	boolean down = false;
 	boolean right = false;
 	boolean left = false;
-
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
+	static ArrayList<Player> pacman = new ArrayList<Player>();
+	Player pl;
+	Player pl2;
+	Player pl3;
 	 Player( int x, int y, int width, int height) {
 		super(x,y,width,height);
 		speed = 5;
@@ -27,6 +35,11 @@ public class Player extends GameObject{
 	    		g.setColor(Color.BLUE);
 	    		g.fillRect(x, y, width, height);
 	    	}
+	 }
+	 void addPlayers() {
+		 pacman.add(pl);
+		 pacman.add(pl2);
+		 pacman.add(pl3);
 	 }
 
 	 void update() {
@@ -62,4 +75,8 @@ public class Player extends GameObject{
 		        
 		    }
 		}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+	}
 }

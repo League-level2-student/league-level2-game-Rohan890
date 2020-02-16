@@ -1,22 +1,34 @@
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 public class ObjectManager {
 static Player pl;
+static BufferedImage level1;
 static ArrayList<Wall> walls = new ArrayList<Wall>();
-Wall w = new Wall(150,100,20,70);
-Wall e = new Wall(300,150,20,70);
-Wall r = new Wall(100,25,20,70);
+int wallsize = 15;
 ObjectManager(Player pl) {
 	this.pl = pl;
-	addWalls();
+	level1 = loadImage("map.png");
+	createLevel(level1);
 }
-void addWalls() {
-	walls.add(w);
-	walls.add(e);
-	walls.add(r);
+void createLevel(BufferedImage image) {
+	for (int x = 0; x < image.getWidth(); x++) {
+		for (int y = 0; y < image.getHeight(); y++) {
+			System.out.println(image.getRGB(x, y));
+			if(image.getRGB(x, y) == -1) {
+				walls.add(new Wall(x*wallsize,y*wallsize,wallsize,wallsize));
+			}
+		if(image.getRGB(x,y) == -328966) {
+			pl = new Player(x,y,20,20);
+		}
+		}
+	}
 }
+
 void draw(Graphics g) {
 	pl.draw(g);
 	for (int i = 0; i < walls.size(); i++) {
@@ -39,5 +51,16 @@ public static boolean checkCollision(int x,int y,int width,int height){
 	}
 	return false;
 	
+}
+BufferedImage loadImage(String imageFile) {
+   
+        try {
+            return ImageIO.read(this.getClass().getResourceAsStream(imageFile));
+	    
+        } catch (Exception e) {
+            
+        }
+       return null;
+    
 }
 }

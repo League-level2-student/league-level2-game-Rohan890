@@ -3,8 +3,8 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class PacMan {
-	public static final int WIDTH = 700;
-	public static final int HEIGHT = 300;
+	public static final int WIDTH = 400;
+	public static final int HEIGHT = 400;
 	GamePanel g;
 	public static void main(String[] args) {
 		PacMan p = new PacMan();

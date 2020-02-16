@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	Timer frameDraw;
-	Player pl = new Player(200,100,50,50);
+	static Player pl = new Player(2000,1000,20,20);
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
@@ -21,7 +21,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public void paintComponent(Graphics g){
 		 drawGameState(g);
 	}
-
+	public static void setPl(Player pl2) {
+		pl = pl2;
+	}
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -79,7 +81,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	}
 	void drawGameState(Graphics g) { 
     	
-		g.setColor(Color.BLACK);
+		if (needImage) {
+		    loadImage ("map.png");
+		}
     	o.draw(g);
     	
 

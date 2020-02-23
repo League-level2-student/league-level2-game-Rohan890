@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	Timer frameDraw;
-	static Player pl = new Player(2000,1000,20,20);
+	static Player pl = new Player(2000,1000,18,18);
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
@@ -35,34 +35,34 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		// TODO Auto-generated method stub
 		if (e.getKeyCode()==KeyEvent.VK_UP ) {
 			
-		    pl.up = true;
-		    pl.down = false;
-		    pl.right = false;
-		    pl.left = false;
+		    o.pl.up = true;
+		    o.pl.down = false;
+		    o.pl.right = false;
+		    o.pl.left = false;
 			
 		}
 		if (e.getKeyCode()==KeyEvent.VK_DOWN) {
 
-		    pl.down = true;
-		    pl.up = false;
-		    pl.right = false;
-		    pl.left = false;
+		    o.pl.down = true;
+		    o.pl.up = false;
+		    o.pl.right = false;
+		    o.pl.left = false;
 			
 		}
 		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
 
-		    pl.right = true;
-		    pl.down = false;
-		    pl.up = false;
-		    pl.left = false;
+		    o.pl.right = true;
+		    o.pl.down = false;
+		    o.pl.up = false;
+		    o.pl.left = false;
 			
 		}
 		if (e.getKeyCode()==KeyEvent.VK_LEFT) {
 
-		    pl.left = true;
-		    pl.down = false;
-		    pl.right = false;
-		    pl.up = false;
+		    o.pl.left = true;
+		    o.pl.down = false;
+		    o.pl.right = false;
+		    o.pl.up = false;
 			
 		}
 	}

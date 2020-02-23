@@ -3,8 +3,8 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class PacMan {
-	public static final int WIDTH = 400;
-	public static final int HEIGHT = 400;
+	public static final int WIDTH = 480;
+	public static final int HEIGHT = 522;
 	GamePanel g;
 	public static void main(String[] args) {
 		PacMan p = new PacMan();
@@ -22,7 +22,7 @@ public class PacMan {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.addKeyListener(g);
-		g.setBackground(Color.black);
+		g.setBackground(Color.WHITE);
 
 	}
 	void setup() {

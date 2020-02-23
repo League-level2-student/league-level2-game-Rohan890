@@ -23,7 +23,7 @@ public class Player extends GameObject implements ActionListener{
 	Player pl3;
 	 Player( int x, int y, int width, int height) {
 		super(x,y,width,height);
-		speed = 5;
+		speed = 1;
 		if (needImage) {
 		    loadImage ("2.png");
 		}
@@ -32,8 +32,10 @@ public class Player extends GameObject implements ActionListener{
 	     if (gotImage) {
 	    		g.drawImage(image, x, y, width, height, null);
 	    	} else {
-	    		g.setColor(Color.BLUE);
+	    		g.setColor(Color.yellow);
 	    		g.fillRect(x, y, width, height);
+	    		g.setColor(Color.black);
+	    		g.drawRect(x, y, width, height);
 	    	}
 	 }
 	 void addPlayers() {

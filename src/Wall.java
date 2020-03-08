@@ -14,6 +14,7 @@ public class Wall extends GameObject{
 	 void draw(Graphics g) {
 	    		g.setColor(Color.BLACK);
 	    		g.fillRect(x, y, width, height);
+	    		
 	    	}
 
 }

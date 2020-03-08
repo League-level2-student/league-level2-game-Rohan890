@@ -10,8 +10,9 @@ public class ObjectManager {
 	static Player pl;
 	static BufferedImage level1;
 	static ArrayList<Wall> walls = new ArrayList<Wall>();
+	static ArrayList<Path> paths = new ArrayList<Path>();
 	int wallsize = 20;
-
+	static int score = 0;
 	ObjectManager(Player pl) {
 		this.pl = pl;
 		level1 = loadImage("map.png");
@@ -29,6 +30,9 @@ public class ObjectManager {
 				if (image.getRGB(x, y) == -328966) {
 					pl = new Player(x * wallsize, y * wallsize, 16, 16);
 				}
+				if(image.getRGB(x, y) == -1) {
+					paths.add(new Path(x * wallsize, y * wallsize, wallsize, wallsize));
+				}
 			}
 		}
 	}
@@ -36,7 +40,13 @@ public class ObjectManager {
 	void draw(Graphics g) {
 		for (int i = 0; i < walls.size(); i++) {
 			walls.get(i).draw(g);
+			
 		}
+		for (int i = 0; i < paths.size(); i++) {
+			paths.get(i).draw(g);
+			
+		}
+
 		pl.draw(g);
 	}
 
@@ -48,7 +58,7 @@ public class ObjectManager {
 	}
 
 
-	public static boolean checkCollision(int x, int y, int width, int height) {
+	public static boolean checkWallCollision(int x, int y, int width, int height) {
 		Rectangle r = new Rectangle(x, y, width, height);
 		for (int i = 0; i < walls.size(); i++) {
 			if (r.intersects(walls.get(i).collisionBox)) {
@@ -57,6 +67,17 @@ public class ObjectManager {
 
 		}
 		return false;
+	}
+	public static void checkPathCollision(int x, int y, int width, int height) {
+		Rectangle r = new Rectangle(x, y, width, height);
+		for (int i = 0; i < paths.size(); i++) {
+			if (r.intersects(paths.get(i).collisionBox)) {
+				paths.get(i).hasdot = false;
+				score+=1;
+				
+			}
+			
+		}
 
 	}
 

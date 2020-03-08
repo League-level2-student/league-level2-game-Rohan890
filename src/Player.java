@@ -59,10 +59,12 @@ public class Player extends GameObject implements ActionListener{
 		 if(left == true) {
 			 xx-= speed;
 		 }
-		 if(ObjectManager.checkCollision(xx,yy,width,height) == false) {
+		 if(ObjectManager.checkWallCollision(xx,yy,width,height) == false) {
 			 x = xx;
 			 y = yy;
 		 }
+		 ObjectManager.checkPathCollision(xx, yy, width, height);
+
 	 }
 	 void loadImage(String imageFile) {
 		    if (needImage) {

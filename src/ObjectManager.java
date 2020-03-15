@@ -38,6 +38,8 @@ public class ObjectManager {
 	}
 
 	void draw(Graphics g) {
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, PacMan.WIDTH, PacMan.HEIGHT);
 		for (int i = 0; i < walls.size(); i++) {
 			walls.get(i).draw(g);
 			

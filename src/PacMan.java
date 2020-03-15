@@ -1,6 +1,7 @@
 import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class PacMan {
 	public static final int WIDTH = 480;
@@ -17,7 +18,9 @@ public class PacMan {
 	}
 	void createGUI() {
 		JFrame frame = new JFrame();
+		JLabel label = new JLabel();
 		frame.add(g);
+		g.add(label);
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

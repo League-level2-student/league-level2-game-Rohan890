@@ -80,13 +80,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		o.update();
 	}
 	void drawGameState(Graphics g) { 
-    	
-		if (needImage) {
-		    loadImage ("map.png");
-		}
     	o.draw(g);
     	for (int i = 0; i < o.paths.size(); i++) {
-			System.out.println(o.score);
+			
 		}
 
     	

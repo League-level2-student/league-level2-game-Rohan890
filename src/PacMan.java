@@ -18,9 +18,7 @@ public class PacMan {
 	}
 	void createGUI() {
 		JFrame frame = new JFrame();
-		JLabel label = new JLabel();
 		frame.add(g);
-		g.add(label);
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -84,7 +84,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	for (int i = 0; i < o.paths.size(); i++) {
 			
 		}
-
+    	
     	
 	}
 	GamePanel(){

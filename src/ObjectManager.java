@@ -22,7 +22,6 @@ public class ObjectManager {
 	void createLevel(BufferedImage image) {
 		for (int x = 0; x < image.getWidth(); x++) {
 			for (int y = 0; y < image.getHeight(); y++) {
-				System.out.println(image.getRGB(x, y));
 				if (image.getRGB(x, y) == -16777216) {
 					walls.add(new Wall(x * wallsize, y * wallsize, wallsize, wallsize));
 				}
@@ -32,6 +31,12 @@ public class ObjectManager {
 				}
 				if(image.getRGB(x, y) == -1) {
 					paths.add(new Path(x * wallsize, y * wallsize, wallsize, wallsize));
+				}
+				if(image.getRGB(x, y) == -133434) {
+					Path p = new Path(x * wallsize, y * wallsize, wallsize, wallsize);
+					p.setHasDot(2);
+					paths.add(p);
+					
 				}
 			}
 		}
@@ -50,6 +55,8 @@ public class ObjectManager {
 		}
 
 		pl.draw(g);
+		g.setColor(Color.WHITE);
+		g.drawString(score + "", 10, 10);
 	}
 
 	void update() {
@@ -73,8 +80,8 @@ public class ObjectManager {
 	public static void checkPathCollision(int x, int y, int width, int height) {
 		Rectangle r = new Rectangle(x, y, width, height);
 		for (int i = 0; i < paths.size(); i++) {
-			if (r.intersects(paths.get(i).collisionBox)) {
-				paths.get(i).hasdot = false;
+			if (r.intersects(paths.get(i).collisionBox) && paths.get(i).hasdot > 0) {
+				paths.get(i).hasdot = 0;
 				score+=1;
 				
 			}

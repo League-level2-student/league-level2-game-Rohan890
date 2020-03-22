@@ -4,8 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class PacMan {
-	public static final int WIDTH = 480;
-	public static final int HEIGHT = 522;
+	public static final int WIDTH = 495;
+	public static final int HEIGHT = 545;
 	GamePanel g;
 	public static void main(String[] args) {
 		PacMan p = new PacMan();

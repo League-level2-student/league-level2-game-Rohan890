@@ -11,13 +11,17 @@ int hasdot = 1;
 
 	}
 	 void draw(Graphics g) {
-		 if(hasdot == 1) {
+		 if(hasdot == 0) {
+			g.setColor(Color.pink); 
+			g.fillRect(x, y, width, height);
+		 }
+		 else if(hasdot == 1) {
 	    		g.setColor(Color.blue);
 	    		g.fillOval(x+5, y+5, width/4, height/4);
 		 }
 		 else if(hasdot == 2) {
 	    		g.setColor(Color.red);
-	    		g.fillOval(x+5, y+5, width/3, height/3); 
+	    		g.fillOval(x+5, y+5, width/2, height/2); 
 		 }
 	    	}
 	public void setHasDot(int x) {

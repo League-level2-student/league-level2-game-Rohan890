@@ -22,6 +22,7 @@ public class ObjectManager {
 	void createLevel(BufferedImage image) {
 		for (int x = 0; x < image.getWidth(); x++) {
 			for (int y = 0; y < image.getHeight(); y++) {
+				System.out.println(image.getRGB(x, y));
 				if (image.getRGB(x, y) == -16777216) {
 					walls.add(new Wall(x * wallsize, y * wallsize, wallsize, wallsize));
 				}
@@ -32,7 +33,7 @@ public class ObjectManager {
 				if(image.getRGB(x, y) == -1) {
 					paths.add(new Path(x * wallsize, y * wallsize, wallsize, wallsize));
 				}
-				if(image.getRGB(x, y) == -133434) {
+				if(image.getRGB(x, y) == -15271418) {
 					Path p = new Path(x * wallsize, y * wallsize, wallsize, wallsize);
 					p.setHasDot(2);
 					paths.add(p);

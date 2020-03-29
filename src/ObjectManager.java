@@ -41,6 +41,48 @@ public class ObjectManager {
 				}
 			}
 		}
+		linkPaths();
+	}
+	void linkPaths() {
+		for(int i = 0; i<paths.size(); i++) {
+			checkCollision(paths.get(i));
+		}
+	}
+	void checkCollision(Path p){
+		ArrayList<Path> neighbors = new ArrayList<Path>();
+		for (int j = 0; j < wallsize+2; j++) {
+			int x = p.x+j;
+			for (int i = 0; i < paths.size(); i++) {
+				if(paths.get(i).doesCollide(x, p.y)== true) {
+					neighbors.add(paths.get(i));
+				}
+			}
+		}
+		for (int j = 0; j < wallsize+2; j++) {
+			int x = p.x-j;
+			for (int i = 0; i < paths.size(); i++) {
+				if(paths.get(i).doesCollide(x, p.y)== true) {
+					neighbors.add(paths.get(i));
+				}
+			}
+		}
+		for (int j = 0; j < wallsize+2; j++) {
+			int y = p.y+j;
+			for (int i = 0; i < paths.size(); i++) {
+				if(paths.get(i).doesCollide(p.x, y)== true) {
+					neighbors.add(paths.get(i));
+				}
+			}
+		}
+		for (int j = 0; j < wallsize+2; j++) {
+			int y = p.y-j;
+			for (int i = 0; i < paths.size(); i++) {
+				if(paths.get(i).doesCollide(p.x, y)== true) {
+					neighbors.add(paths.get(i));
+				}
+			}
+		}
+		p.setNeighbor(neighbors);
 	}
 
 	void draw(Graphics g) {

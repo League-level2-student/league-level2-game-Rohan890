@@ -1,14 +1,29 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 public class Path extends GameObject{
 int hasdot = 1;
+ArrayList<Path> neighbors = new ArrayList<Path>();
 	Path(int x, int y, int width, int height){
 		super(x,y,width,height);
 
+	}
+	void setNeighbor(ArrayList<Path>neighbors) {
+		this.neighbors = neighbors;
+	}
+	ArrayList<Path> getNeighbor() {
+		return neighbors;
+	}
+	public boolean doesCollide(int x, int y) {
+			if(x == this.x &&y == this.y) {
+				return true;
+			}
+			return false;
 	}
 	 void draw(Graphics g) {
 		 if(hasdot == 0) {

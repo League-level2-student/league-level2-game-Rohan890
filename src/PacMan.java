@@ -27,7 +27,7 @@ public class PacMan {
 
 	}
 	void setup() {
-		
+
 	}
 }
 

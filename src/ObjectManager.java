@@ -4,7 +4,9 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+
 import javax.imageio.ImageIO;
+import javax.swing.Timer;
 
 public class ObjectManager {
 	static Player pl;
@@ -124,9 +126,15 @@ public class ObjectManager {
 		Rectangle r = new Rectangle(x, y, width, height);
 		for (int i = 0; i < paths.size(); i++) {
 			if (r.intersects(paths.get(i).collisionBox) && paths.get(i).hasdot > 0) {
+				if(paths.get(i).hasdot == 2) {
+					paths.get(i).hasdot = 0;
+					score+=1;
+					GamePanel.countDown = 60;
+				}
+				else {
 				paths.get(i).hasdot = 0;
 				score+=1;
-				
+				}
 			}
 			
 		}

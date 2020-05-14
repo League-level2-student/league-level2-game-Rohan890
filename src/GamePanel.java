@@ -24,8 +24,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     int currentState = 0;
     Font titleFont;
     Font menuFont;
-    int countDown = 60;
-    Timer countdownTimer;
+    public static int countDown = 60;
+    public static Timer countdownTimer;
 	public void paintComponent(Graphics g){
 		if(currentState == MENU) {
 			drawMenuState(g);
@@ -139,9 +139,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     	g.drawString("Timer : " + countDown, 400, 15);
     	for (int i = 0; i < o.paths.size(); i++) {
 		
-		}
-    
+		}    
     	
+	}
+	void updateGameState() {
+
 	}
 	GamePanel(){
 		frameDraw = new Timer(1000/60,this);
